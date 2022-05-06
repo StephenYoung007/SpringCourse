@@ -63,5 +63,14 @@ public class TestBeanFactory01 {
 
         beanFactory.preInstantiateSingletons();
 
+        /*
+        a.beanFactory不会做的事
+            1,不会主动调用BeanFactory后处理器
+            2.不会主动，添加Bean后处理器
+            3,不会主动初始化单例
+            4.不会解beanFactory还不会解析${}与#{}
+        b.bean后处理器会有排序的逻辑
+        * */
+
     }
 }
