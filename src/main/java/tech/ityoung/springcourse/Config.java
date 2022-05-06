@@ -25,8 +25,6 @@ public class Config {
 
     @Bean
     public Bean3 bean3() {
-        HashMap<Object, Object> map = new HashMap<>();
-//        Optional.ofNullable(map.get("sss")).map()
         return new Bean3();
     }
 
