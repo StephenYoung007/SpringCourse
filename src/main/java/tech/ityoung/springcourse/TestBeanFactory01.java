@@ -9,6 +9,7 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigUtils;
+import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 
 import java.util.List;
 
@@ -49,8 +50,25 @@ public class TestBeanFactory01 {
 //        System.out.println(beanFactory.getBean(Bean1.class).getBean3());
 
         log.info("==========================after add bean post processor====================================");
-        beanFactory.getBeansOfType(BeanPostProcessor.class).values()
-                .forEach(beanFactory::addBeanPostProcessor);
+        beanFactory.getBeansOfType(BeanPostProcessor.class).values().stream().sorted((ele1, ele2) -> {
+                    if (ele1 instanceof CommonAnnotationBeanPostProcessor) {
+                        return -1;
+                    } else if (ele2 instanceof CommonAnnotationBeanPostProcessor) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                })
+                .forEach(ele -> {
+                    System.out.println(ele);
+                    if (ele instanceof AutowiredAnnotationBeanPostProcessor) {
+                        ((AutowiredAnnotationBeanPostProcessor) ele).setOrder(0);
+                    }
+                    if (ele instanceof CommonAnnotationBeanPostProcessor) {
+                        ((CommonAnnotationBeanPostProcessor) ele).setOrder(1);
+                    }
+                    beanFactory.addBeanPostProcessor(ele);
+                });
 
         for (String beanDefinitionName : beanFactory.getBeanDefinitionNames()) {
             log.info("bean definition: {}", beanDefinitionName);
@@ -62,6 +80,7 @@ public class TestBeanFactory01 {
 //        System.out.println(beanFactory.getBean(Bean1.class).getBean3());
 
         beanFactory.preInstantiateSingletons();
+        System.out.println(beanFactory.getBean(Bean1.class).getInter());
 
         /*
         a.beanFactory不会做的事

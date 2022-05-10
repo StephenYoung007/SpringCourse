@@ -1,10 +1,15 @@
 package tech.ityoung.springcourse;
 
+import jdk.jfr.Name;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.annotation.Resource;
 
 public class Bean1 {
     @Autowired
-    private Bean3 bean3;
+    @Resource(name = "bean4")
+    private Inter bean3;
 
     public Bean1() {
         System.out.println("bean1 construction");;
@@ -15,7 +20,7 @@ public class Bean1 {
         return "Bean1{}";
     }
 
-    public Bean3 getBean3() {
+    public Inter getInter() {
         return bean3;
     }
 }

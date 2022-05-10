@@ -37,7 +37,7 @@ public class TestBeanFactory {
 
         System.out.println("=====================================================");
 
-        System.out.println(beanFactory.getBean(Bean1.class).getBean3());
+        System.out.println(beanFactory.getBean(Bean1.class));
 
     }
 }

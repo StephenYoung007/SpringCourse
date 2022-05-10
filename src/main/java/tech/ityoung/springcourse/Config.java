@@ -28,5 +28,10 @@ public class Config {
         return new Bean3();
     }
 
+    @Bean
+    public Bean4 bean4() {
+        return new Bean4();
+    }
+
 
 }
