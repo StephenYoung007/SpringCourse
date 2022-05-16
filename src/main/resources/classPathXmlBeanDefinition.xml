@@ -4,9 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="xmlBean01" class="tech.ityoung.springcourse.XmlBean01"/>
+    <bean id="xmlBean01" class="tech.ityoung.springcourse.a02.XmlBean01"/>
 
-    <bean id="xmlBean02" class="tech.ityoung.springcourse.XmlBean02">
+    <bean id="xmlBean02" class="tech.ityoung.springcourse.a02.XmlBean02">
         <property name="xmlBean01" ref="xmlBean01"/>
     </bean>
 

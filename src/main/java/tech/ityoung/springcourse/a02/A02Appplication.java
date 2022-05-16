@@ -1,12 +1,11 @@
-package tech.ityoung.springcourse;
+package tech.ityoung.springcourse.a02;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
 import java.util.Arrays;
@@ -17,6 +16,7 @@ public class A02Appplication {
         testClassPathXmlApplicationContext();
 //        stepsOfClassPathXmlApplicationContext();
 //        testAnnotationConfigApplicationContext();
+        testAnnotationConfigServletWebServerApplicationContext();
     }
 
     private static void testAnnotationConfigApplicationContext() {
@@ -39,6 +39,12 @@ public class A02Appplication {
         beanDefinitionReader.loadBeanDefinitions(new FileSystemResource("src\\main\\resources\\classPathXmlBeanDefinition.xml"));
         Arrays.stream(beanFactory.getBeanDefinitionNames()).forEach(System.out::println);
         System.out.println(beanFactory.getBean(XmlBean02.class).getXmlBean01());
+        new AnnotationConfigServletWebServerApplicationContext();
+    }
+
+    public static void testAnnotationConfigServletWebServerApplicationContext() {
+        AnnotationConfigServletWebServerApplicationContext context =
+                new AnnotationConfigServletWebServerApplicationContext(WebConfig.class);
 
     }
 

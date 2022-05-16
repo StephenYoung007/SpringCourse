@@ -1,4 +1,4 @@
-package tech.ityoung.springcourse;
+package tech.ityoung.springcourse.a02;
 
 public class XmlBean02 {
     private XmlBean01 xmlBean01;
