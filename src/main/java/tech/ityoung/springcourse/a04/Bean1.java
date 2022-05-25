@@ -62,4 +62,13 @@ public class Bean1 {
     public void destroy() {
         log.info("@PreDestroy生效........................................");
     }
+
+    @Override
+    public String toString() {
+        return "Bean1{" +
+                "bean3=" + bean3 +
+                ", bean2=" + bean2 +
+                ", home='" + home + '\'' +
+                '}';
+    }
 }
