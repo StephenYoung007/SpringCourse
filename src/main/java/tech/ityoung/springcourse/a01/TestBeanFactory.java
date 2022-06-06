@@ -1,4 +1,4 @@
-package tech.ityoung.springcourse;
+package tech.ityoung.springcourse.a01;
 
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;

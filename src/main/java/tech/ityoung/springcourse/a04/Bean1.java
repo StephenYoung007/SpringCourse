@@ -37,7 +37,7 @@ public class Bean1 {
      * @Value可以进行值注入，除此之外可以根据类型自动注入
      */
     @Autowired
-    public void autowire(@Value("${JAVA_HOME}") String javaHome) {
+    public void setHome(@Value("${JAVA_HOME}") String javaHome) {
         log.info("@Value生效 : {}.............................", javaHome);
         this.home = javaHome;
     }

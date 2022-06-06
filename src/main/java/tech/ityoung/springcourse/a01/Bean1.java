@@ -1,8 +1,6 @@
-package tech.ityoung.springcourse;
+package tech.ityoung.springcourse.a01;
 
-import jdk.jfr.Name;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.Resource;
 
